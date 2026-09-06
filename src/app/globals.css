@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-50: #eaf3ff;
+    --color-brand-100: #d5e7ff;
+    --color-brand-200: #adcfff;
+    --color-brand-300: #7db4ff;
+    --color-brand-400: #4b94ff;
+    --color-brand-500: #2b7cff;
+    --color-brand-600: #1d63f2;
+    --color-brand-700: #184cc0;
+    --color-brand-800: #163a8f;
+    --color-brand-900: #081a39;
+    --color-surface: #091827;
+    --color-surface-alt: #0f223a;
+    --color-surface-muted: #132d4f;
+    --color-border: rgba(148, 163, 184, 0.2);
+    --color-text: #ecf7ff;
+    --color-text-muted: #c5d8f4;
+    --color-text-soft: #8ca5c8;
+    --color-success: #22c55e;
+    --color-warning: #fbbf24;
+    --color-error: #f87171;
+    --shadow-soft: 0 18px 40px rgba(2, 6, 23, 0.42);
+    --shadow-brand: 0 22px 60px rgba(29, 99, 242, 0.35);
+    --radius-card: 1rem;
+    --radius-panel: 1.5rem;
+}
+
+/* =========================================================
+   Global Base
+   ========================================================= */
+
+:root {
+    color-scheme: dark;
+    --page-bg: #050d1a;
+    --page-text: #ecf7ff;
+    --page-text-soft: #b8c9e5;
+    --font-size-root: 14px;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.8125rem;
+    --font-size-base: 0.9375rem;
+    --font-size-lg: 1.0625rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    --font-size-4xl: 3rem;
+    --line-height-base: 1.6;
+    font-size: var(--font-size-root);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size-root);
+    background: #050d1a;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.12), transparent 30%),
+        linear-gradient(180deg, #040b15 0%, #071423 38%, #091827 100%);
+    color: var(--page-text);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    background-attachment: fixed;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+video,
+svg,
+canvas {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================================================
+   Shared Theme Tokens
+   ========================================================= */
+
+@layer components {
+    .app-shell {
+        @apply bg-surface text-text;
+    }
+
+    .site-shell {
+        @apply bg-surface text-text;
+    }
+
+    .surface-card {
+        @apply rounded-2xl border border-border bg-surface shadow-soft;
+    }
+
+    .surface-muted {
+        @apply bg-surface-alt text-text-muted;
+    }
+
+    .brand-gradient {
+        background: linear-gradient(135deg, var(--color-brand-600) 0%, var(--color-brand-500) 45%, #22d3ee 100%);
+    }
+
+    .brand-soft {
+        @apply bg-brand-100 text-brand-700;
+    }
+
+    .section-heading {
+        @apply text-text;
+    }
+
+    .label-muted {
+        @apply text-text-muted;
+    }
+
+    .text-body {
+        @apply text-[0.9375rem] leading-6 text-text-muted;
+    }
+
+    .text-label {
+        @apply text-[0.75rem] font-medium uppercase tracking-[0.18em] text-text-soft;
+    }
+
+    .site-nav {
+        @apply border-b border-border bg-slate-950/70 backdrop-blur-md;
+    }
+
+    .site-nav-link {
+        @apply whitespace-nowrap text-sm font-medium text-slate-200 transition hover:text-blue-300;
+    }
+
+    .site-button-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(37,99,235,0.35)] transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-950;
+    }
+
+    .site-button-secondary {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-surface px-4 py-2.5 text-sm font-medium text-text transition hover:bg-surface-alt;
+    }
+
+    .site-section-surface {
+        @apply bg-surface-alt;
+    }
+
+    .hero-kicker {
+        @apply inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-slate-300;
+    }
+
+    .hero-title {
+        @apply max-w-xl text-[clamp(2.2rem,4vw,3.4rem)] font-extrabold leading-[1.08] tracking-tight text-white;
+    }
+
+    .hero-subtitle {
+        @apply mt-6 max-w-lg text-base leading-7 text-slate-400;
+    }
+
+    .section-shell {
+        @apply flex justify-center px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32;
+    }
+
+    .section-content {
+        @apply container w-full;
+    }
+
+    .section-kicker {
+        @apply inline-flex rounded-full bg-brand-100 px-4 py-2 text-xs font-semibold text-brand-700 sm:px-5 sm:text-sm;
+    }
+
+    .section-title {
+        @apply mt-5 text-[clamp(2rem,3vw,3rem)] font-black leading-[1.08] tracking-tight text-text sm:mt-6;
+    }
+
+    .section-copy {
+        @apply mt-5 text-base leading-7 text-text-muted sm:mt-6 sm:text-lg sm:leading-8;
+    }
+
+    .card-surface {
+        @apply rounded-2xl border border-border bg-surface shadow-soft transition-all duration-300;
+    }
+
+    .card-surface-hover {
+        @apply rounded-2xl border border-border bg-surface shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-brand sm:rounded-3xl;
+    }
+
+    .brand-link {
+        @apply inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition-all hover:text-brand-700 sm:text-base;
+    }
+
+    .light-panel {
+        @apply bg-surface-alt;
+    }
+}
+
+/* =========================================================
+   Admin Form Input
+   ========================================================= */
+
+.input {
+    width: 100%;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-alt);
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    outline: none;
+    transition:
+        border-color 150ms ease,
+        background-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.input:focus {
+    border-color: var(--color-brand-500);
+    background: var(--color-surface);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* =========================================================
+   Marquee
+   ========================================================= */
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-33.333333%);
+    }
+}
+
+/* Respect users who disable animations */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
