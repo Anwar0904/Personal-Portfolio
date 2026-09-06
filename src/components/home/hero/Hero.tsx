@@ -1,37 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  Sparkles,
-  BarChart3,
   Code2,
 } from "lucide-react";
-
-/* ------------------------------------------------------------------ */
-/*  NOTE ON IMAGES                                                     */
-/*  Swap every `src="/images/hero/*"` below for your real assets.      */
-/*  Recommended source sizes:                                          */
-/*    - laptop-dashboard.jpg  -> 900x700  (landscape)                  */
-/*    - building.jpg          -> 900x1100 (portrait, tall)             */
-/*    - team.jpg               -> 800x700  (landscape)                 */
-/*    - app-screen.jpg         -> 600x1200 (phone screenshot)          */
-/* ------------------------------------------------------------------ */
-
-
-const TRUSTED_BY = [
-  { name: "Uneed", icon: "u" },
-  { name: "Cactus", icon: "cactus" },
-  { name: "cloudwatch", icon: "cloud" },
-  { name: "Volume", icon: "check" },
-  { name: "SnapShot", icon: "gear" },
-];
+import { profile } from "@/config/profile";
 
 export default function Hero() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(135deg,#040d1a_0%,#071a2f_28%,#0a1f3c_52%,#091827_100%)]">
       {/* ambient background glow */}
@@ -47,49 +24,47 @@ export default function Hero() {
         <div className="relative z-10">
           <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-blue-400/30 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-100 shadow-sm shadow-blue-500/10 backdrop-blur-sm">
             <span className="h-2 w-2 rounded-full bg-cyan-400" />
-            Digital solutions that drive real growth
+            {profile.availability}
           </div>
 
           <h1 className="max-w-xl text-[2.5rem] font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
-            We Drive{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-200 bg-clip-text text-transparent">
-              Businesses
+            Hi, I&apos;m {profile.name}.
+            <span className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-200 bg-clip-text text-transparent">
+              {profile.headline}
             </span>
           </h1>
 
           <p className="mt-6 max-w-lg text-base leading-7 text-slate-300 sm:text-lg">
-            From powerful websites to <span className="font-semibold text-white">AI automation</span> and{" "}
-            <span className="font-semibold text-white">custom software</span>, we help brands scale smarter
-            with technology.
+            {profile.introduction}
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
-              href="/services"
+              href="/portfolio"
               className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-transform duration-200 hover:-translate-y-0.5"
             >
-              Explore Our Capabilities
+              View my projects
               <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
 
             <Link
-              href="/portfolio"
+              href="/contact"
               className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-100 transition-colors hover:bg-white/10"
             >
-              See Our Work
+              Contact me
             </Link>
           </div>
 
           <div className="mt-14">
-            <p className="mb-4 text-xs font-medium text-slate-300">Trusted by growing brands</p>
+            <p className="mb-4 text-xs font-medium text-slate-300">Working across</p>
             <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
-              {TRUSTED_BY.map((brand) => (
+              {profile.stack.slice(0, 5).map((technology) => (
                 <span
-                  key={brand.name}
+                  key={technology}
                   className="flex items-center gap-1.5 text-sm font-medium text-slate-200"
                 >
-                  <TrustedIcon type={brand.icon} />
-                  {brand.name}
+                  <Code2 className="h-4 w-4 text-cyan-300" />
+                  {technology}
                 </span>
               ))}
             </div>
@@ -161,26 +136,25 @@ export default function Hero() {
           {/* floating card — AI Automation */}
           <FloatingCard
             className="left-[6%] top-[2%] w-[38%] sm:w-[38%]"
-            icon={<Sparkles size={18} />}
-            title="AI Automation"
-            subtitle="Smarter Workflows"
+            icon={<Code2 size={18} />}
+            title={profile.title}
+            subtitle="Frontend to backend"
           />
 
-          {/* floating card — 98% Organization Satisfaction */}
           <FloatingCard
             className="right-[-2%] top-[32%] w-[36%] sm:w-[36%]"
-            icon={<BarChart3 size={18} />}
-            title="98%"
-            titleClassName="text-emerald-500"
-            subtitle="Organization Satisfaction"
+            icon={<Code2 size={18} />}
+            title="Build"
+            titleClassName="text-cyan-300"
+            subtitle="Useful, durable software"
           />
 
           {/* floating card — Custom Software */}
           <FloatingCard
             className="bottom-[10%] left-[24%] w-[45%] sm:w-[46%]"
             icon={<Code2 size={18} />}
-            title="Custom Software"
-            subtitle="Built for Scale"
+            title="Ship"
+            subtitle="From idea to production"
           />
         </div>
       </div>
@@ -220,22 +194,4 @@ function FloatingCard({
       </span>
     </div>
   );
-}
-
-function TrustedIcon({ type }: { type: string }) {
-  const common = "h-4 w-4 shrink-0 text-slate-500";
-  switch (type) {
-    case "u":
-      return <span className={`${common} flex items-center justify-center rounded-full border border-slate-500 text-[10px]`}>U</span>;
-    case "cactus":
-      return <span className={common}>🌵</span>;
-    case "cloud":
-      return <span className={common}>☁️</span>;
-    case "check":
-      return <span className={common}>✔</span>;
-    case "gear":
-      return <span className={common}>⚙️</span>;
-    default:
-      return null;
-  }
 }

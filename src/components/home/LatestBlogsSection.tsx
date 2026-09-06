@@ -116,13 +116,12 @@ export default function LatestBlogsSection() {
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:mb-14 md:mb-16 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <span className="section-kicker">Latest Insights</span>
+            <span className="section-kicker">Writing</span>
 
-            <h2 className="section-title mt-2 sm:mt-4">Insights & Resources</h2>
+            <h2 className="section-title mt-2 sm:mt-4">Things I&apos;m learning while building software</h2>
 
             <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-300 sm:mt-2 sm:text-base sm:leading-7 md:text-lg md:leading-8">
-              Stay updated with technology trends, AI innovations,
-              software engineering and digital transformation.
+              Notes on development, architecture, delivery, and lessons learned from real work.
             </p>
           </div>
 
@@ -130,7 +129,7 @@ export default function LatestBlogsSection() {
             href="/blogs"
             className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/10 bg-slate-900/80 px-4 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-blue-400/40 hover:bg-blue-500/10 hover:text-blue-200 sm:w-fit sm:gap-3 sm:rounded-xl sm:px-6 sm:py-3 md:text-base"
           >
-            View All Articles
+            View all writing
             <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </Link>
         </div>
@@ -153,7 +152,7 @@ export default function LatestBlogsSection() {
         {!loading && !error && blogs.length === 0 && (
           <div className="rounded-3xl border border-white/10 bg-slate-900/80 p-12 text-center">
             <h3 className="text-xl font-bold text-white">No articles available yet</h3>
-            <p className="mt-2 text-sm text-slate-300">Check back soon for the latest insights from ADM.</p>
+            <p className="mt-2 text-sm text-slate-300">New writing will appear here as it is published.</p>
           </div>
         )}
 

@@ -11,61 +11,50 @@ import {
     FaInstagram,
     FaLinkedinIn,
 } from "react-icons/fa";
+import { profile } from "@/config/profile";
 
 const services = [
     {
-        name: "Digital Platforms & Engineering",
-        href: "/services/web-development",
+        name: "Expertise",
+        href: "/services",
     },
     {
-        name: "Mobile Apps",
-        href: "/services/mobile-apps",
+        name: "Projects",
+        href: "/portfolio",
     },
     {
-        name: "AI & Intelligent Systems",
-        href: "/services/ai-solutions",
+        name: "Writing",
+        href: "/blogs",
     },
     {
-        name: "UI / UX Design",
-        href: "/services/ui-ux",
+        name: "Contact",
+        href: "/contact",
     },
 ];
 
 const company = [
     {
-        name: "Selected Work",
-        href: "/portfolio",
-    },
-    {
-        name: "Industries",
-        href: "/industries",
-    },
-    {
-        name: "People & Expertise",
-        href: "/team",
-    },
-    {
-        name: "Insights",
-        href: "/blogs",
+        name: "Home",
+        href: "/",
     },
 ];
 
 const socials = [
     {
         icon: FaFacebookF,
-        href: "https://www.facebook.com/share/1Q8xVAMvsK/",
+        href: profile.social.linkedin,
     },
     {
         icon: FaLinkedinIn,
-        href: "https://www.linkedin.com/company/arazi-digital-media",
+        href: profile.social.linkedin,
     },
     {
         icon: FaGithub,
-        href: "https://github.com",
+        href: profile.social.github,
     },
     {
         icon: FaInstagram,
-        href: "https://www.instagram.com/arazidigitalmedia?igsi=MW56cnFwNDhzZDZ6eQ==",
+        href: profile.social.linkedin,
     },
 ];
 
@@ -94,12 +83,12 @@ export default function Footer() {
                         <div>
 
                             <p className="mb-3 text-xs font-semibold text-blue-400 sm:text-sm">
-                                READY TO BUILD SOMETHING AMAZING?
+                                HAVE A PROJECT IN MIND?
                             </p>
 
                             <h2 className="max-w-2xl text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
 
-                                Let's create digital experiences your customers will love.
+                                Let&apos;s build something useful together.
 
                             </h2>
 
@@ -109,7 +98,7 @@ export default function Footer() {
                             href="/consultation"
                             className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold transition-all duration-300 hover:bg-blue-700 sm:w-auto sm:gap-3 sm:rounded-2xl sm:px-8 sm:py-4 sm:text-base"
                         >
-                            Book Consultation
+                            Start a conversation
 
                             <ArrowUpRight size={16} className="sm:h-[18px] sm:w-[18px]" />
 
@@ -144,13 +133,13 @@ export default function Footer() {
 
                                     <h2 className="text-lg font-bold sm:text-2xl">
 
-                                        ADM
+                                        {profile.shortName}
 
                                     </h2>
 
                                     <p className="text-sm text-slate-400">
 
-                                        Arazi Digital Media
+                                        {profile.title}
 
                                     </p>
 
@@ -160,10 +149,7 @@ export default function Footer() {
 
                             <p className="max-w-md leading-8 text-slate-300">
 
-                                ADM helps businesses grow through
-                                premium digital platforms, AI-powered
-                                intelligent systems, UI/UX design, branding,
-                                and digital transformation.
+                                {profile.introduction}
 
                             </p>
 
@@ -174,15 +160,17 @@ export default function Footer() {
                                     const Icon = social.icon;
 
                                     return (
-                                        <Link
+                                        <a
                                             key={index}
                                             href={social.href}
+                                            target="_blank"
+                                            rel="noreferrer"
                                             className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:bg-blue-600"
                                         >
                                             <Icon
                                                 size={18}
                                             />
-                                        </Link>
+                                        </a>
                                     );
                                 })}
 
@@ -196,7 +184,7 @@ export default function Footer() {
 
                             <h3 className="mb-6 text-base font-semibold sm:mb-8 sm:text-lg">
 
-                                Capabilities
+                                Expertise
 
                             </h3>
 
@@ -230,7 +218,7 @@ export default function Footer() {
 
                             <h3 className="mb-6 text-base font-semibold sm:mb-8 sm:text-lg">
 
-                                Company
+                                Explore
 
                             </h3>
 
@@ -284,7 +272,7 @@ export default function Footer() {
 
                                         <p>
 
-                                            hello@adm.com
+                                            {profile.email}
 
                                         </p>
 
@@ -306,7 +294,7 @@ export default function Footer() {
 
                                         <p>
 
-                                            +92 300 0000000
+                                            {profile.phone || "Email is the best way to reach me"}
 
                                         </p>
 
@@ -328,7 +316,7 @@ export default function Footer() {
 
                                         <p>
 
-                                            Pakistan
+                                            {profile.location}
 
                                         </p>
 
@@ -352,7 +340,7 @@ export default function Footer() {
 
                         <p>
 
-                            © {new Date().getFullYear()} Arazi Digital Media.
+                            © {new Date().getFullYear()} {profile.name}.
                             All Rights Reserved.
 
                         </p>

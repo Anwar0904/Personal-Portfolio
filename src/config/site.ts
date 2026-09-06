@@ -1,5 +1,7 @@
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arazidigitalmedia.com";
 
+export { profile } from "./profile";
+
 export const publicRoutes = {
     home: "/",
     services: "/services",

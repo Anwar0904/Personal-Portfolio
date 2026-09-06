@@ -17,25 +17,22 @@ export default function CallToActionSection() {
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">
           <span className="inline-flex max-w-full items-center justify-center rounded-full border border-white/20 bg-white/8 px-4 py-2 text-xs font-semibold text-slate-100 backdrop-blur-md sm:px-5 sm:text-sm">
-            🚀 Let&apos;s Build Something Extraordinary
+            Have a project, idea, or technical problem?
           </span>
 
           <h2 className="mt-4 text-2xl font-black leading-[1.08] tracking-tight text-white sm:mt-6 sm:text-3xl md:text-4xl lg:mt-8 lg:text-5xl xl:text-6xl">
-            Ready To Transform
-            <br className="hidden sm:block" /> Your Business?
+            Let&apos;s build something useful.
           </h2>
 
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-6 text-slate-200 sm:mt-6 sm:text-base sm:leading-7 md:text-lg md:leading-8 lg:text-xl lg:leading-9">
-            Whether you&apos;re launching a startup, modernizing an enterprise, or
-            integrating Artificial Intelligence into your business, ADM is
-            ready to turn your vision into reality.
+            Tell me what you are trying to make, improve, or understand. I&apos;ll help turn the next step into a clear plan.
           </p>
 
           <div className="mt-8 grid grid-cols-2 overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl sm:mt-12 sm:grid-cols-4 sm:rounded-2xl md:mt-16 lg:rounded-3xl">
-            <Stat value="50+" label="Engagements" />
-            <Stat value="98%" label="Organization Satisfaction" />
-            <Stat value="24/7" label="Support" />
-            <Stat value="AI" label="Powered" />
+            <Stat value="UI" label="Thoughtful interfaces" />
+            <Stat value="API" label="Reliable systems" />
+            <Stat value="DB" label="Clear data models" />
+            <Stat value="Ops" label="Ready to ship" />
           </div>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:mt-12 sm:flex-row sm:gap-4 md:gap-5 lg:mt-16">
@@ -45,7 +42,7 @@ export default function CallToActionSection() {
             >
               <CalendarDays className="h-5 w-5 shrink-0 text-blue-700 sm:h-6 sm:w-6" />
 
-              <span className="text-blue-700">Book Free Consultation</span>
+              <span className="text-blue-700">Start a conversation</span>
 
               <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1.5 sm:group-hover:translate-x-2" />
             </Link>
@@ -54,15 +51,15 @@ export default function CallToActionSection() {
               href="/contact"
               className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl border border-white/15 bg-slate-900/20 px-6 py-4 text-base font-bold text-white backdrop-blur-xl transition-all duration-300 hover:bg-white/10 sm:w-auto sm:px-8 sm:py-5 sm:text-lg lg:px-10"
             >
-              Contact Our Team
+              View my projects
             </Link>
           </div>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-2 text-xs text-slate-200 sm:mt-12 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2 md:mt-14 lg:mt-16 lg:text-sm lg:gap-x-8">
-            <Benefit>Free Discovery Call</Benefit>
-            <Benefit>No Hidden Charges</Benefit>
-            <Benefit>AI-First Solutions</Benefit>
-            <Benefit>Dedicated Support</Benefit>
+            <Benefit>Clear communication</Benefit>
+            <Benefit>Practical decisions</Benefit>
+            <Benefit>Built for real use</Benefit>
+            <Benefit>Long-term thinking</Benefit>
           </div>
         </div>
       </div>

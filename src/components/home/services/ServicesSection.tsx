@@ -86,7 +86,7 @@ function ServiceCard({
     service.shortDescription ||
     service.description ||
     service.content ||
-    "Discover how ADM can help transform your business with modern digital solutions.";
+    "Explore the systems and digital products I build.";
 
   return (
     <article
@@ -475,7 +475,7 @@ export default function ServicesSection() {
               md:text-sm
             "
           >
-            Our Capabilities
+            Expertise
           </span>
 
           <h2
@@ -485,10 +485,10 @@ export default function ServicesSection() {
               text-white
             "
           >
-            Digital Capabilities Built
+            Digital products built
             <span className="text-cyan-300">
               {" "}
-              For Growth
+              for real use
             </span>
           </h2>
 
@@ -509,10 +509,7 @@ export default function ServicesSection() {
               md:leading-8
             "
           >
-            From AI automation to enterprise
-            software, ADM delivers practical
-            digital solutions that help
-            businesses innovate faster.
+            Explore the services managed through the existing content system and presented here as the areas I work in.
           </p>
         </div>
 
@@ -631,7 +628,7 @@ export default function ServicesSection() {
                 sm:text-xl
               "
             >
-              Our capabilities are being updated
+              Expertise is being updated
             </h3>
 
             <p
@@ -645,9 +642,7 @@ export default function ServicesSection() {
                 sm:text-base
               "
             >
-              We are currently updating our
-              service offerings. Please check
-              back shortly.
+              The public service list is being updated. Please check back shortly.
             </p>
           </div>
         )}

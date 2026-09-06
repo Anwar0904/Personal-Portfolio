@@ -3,29 +3,19 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import QueryClientProviderWrapper from "@/components/QueryClientProviderWrapper";
 import { SITE_URL } from "@/config/site";
+import { profile } from "@/config/profile";
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     title: {
-        default: "ADM | Digital Company - AI-Powered Web & Mobile Solutions",
-        template: "%s | Arazi Digital Media",
+        default: profile.seo.title,
+        template: `%s | ${profile.name}`,
     },
-    description:
-        "Arazi Digital Media (ADM) delivers intelligent digital solutions: AI automation, enterprise software, digital platforms, and UI/UX design. Trusted by leading brands for transforming businesses with technology.",
-    keywords: [
-        "digital agency",
-        "digital company",
-        "web development",
-        "mobile apps",
-        "AI solutions",
-        "digital transformation",
-        "UI/UX design",
-        "enterprise software",
-        "Pakistan",
-    ],
-    authors: [{ name: "Arazi Digital Media" }],
-    creator: "Arazi Digital Media",
-    publisher: "Arazi Digital Media",
+    description: profile.seo.description,
+    keywords: [...profile.seo.keywords],
+    authors: [{ name: profile.name }],
+    creator: profile.name,
+    publisher: profile.name,
     robots: {
         index: true,
         follow: true,
@@ -46,16 +36,14 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         url: SITE_URL,
-        title: "ADM | Digital Company - AI-Powered Solutions",
-        description:
-            "Arazi Digital Media delivers intelligent digital solutions: AI automation, enterprise software, digital platforms, and UI/UX design.",
-        siteName: "Arazi Digital Media",
+        title: profile.seo.title,
+        description: profile.seo.description,
+        siteName: profile.name,
     },
     twitter: {
         card: "summary_large_image",
-        title: "ADM | Digital Company - AI-Powered Solutions",
-        description:
-            "Arazi Digital Media delivers intelligent digital solutions: AI automation, enterprise software, digital platforms, and UI/UX design.",
+        title: profile.seo.title,
+        description: profile.seo.description,
     },
 };
 
@@ -74,6 +62,30 @@ export default function RootLayout({
                 <link rel="canonical" href={SITE_URL} />
             </head>
             <body className="app-shell">
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@graph": [
+                                {
+                                    "@type": "Person",
+                                    name: profile.name,
+                                    jobTitle: profile.title,
+                                    url: SITE_URL,
+                                    email: profile.email,
+                                    sameAs: [profile.social.github, profile.social.linkedin],
+                                },
+                                {
+                                    "@type": "WebSite",
+                                    name: profile.name,
+                                    url: SITE_URL,
+                                    description: profile.seo.description,
+                                },
+                            ],
+                        }),
+                    }}
+                />
                 <QueryClientProviderWrapper>
                     {children}
                 </QueryClientProviderWrapper>

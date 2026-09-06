@@ -11,31 +11,31 @@ const steps = [
     icon: Search,
     title: "Discover",
     description:
-      "We understand your business, goals, users, and challenges before writing a single line of code.",
+      "I understand the problem, users, constraints, and goals before writing a single line of code.",
   },
   {
     icon: PenTool,
     title: "Design",
     description:
-      "We create intuitive UI/UX prototypes with modern interaction design focused on real user needs.",
+      "I shape the experience around real user needs, clear flows, and a visual system that supports the product.",
   },
   {
     icon: Code2,
     title: "Develop",
     description:
-      "We build robust full-stack solutions using modern technologies, AI-assisted engineering, and scalable architecture.",
+      "I build robust full-stack software with clear boundaries, practical architecture, and modern tooling.",
   },
   {
     icon: Rocket,
     title: "Deploy",
     description:
-      "We take your product to production with reliable deployment, cloud infrastructure, monitoring, and optimization.",
+      "I prepare the product for production with dependable deployment, monitoring, and performance basics.",
   },
   {
     icon: TrendingUp,
     title: "Scale",
     description:
-      "We continuously optimize performance, analyze results, and improve features as your business grows.",
+      "I improve the product over time as new evidence, feedback, and requirements emerge.",
   },
 ];
 
@@ -46,16 +46,15 @@ export default function ProcessSection() {
         {/* Heading */}
         <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16 lg:mb-20">
           <span className="section-kicker">
-            ADM Methodology
+            How I work
           </span>
 
           <h2 className="section-title">
-            Our Execution Blueprint
+            From idea to a useful product
           </h2>
 
           <p className="section-copy">
-            Every successful digital product follows a structured process.
-            Here&apos;s how ADM transforms ideas into intelligent solutions.
+            A practical process keeps the work understandable, testable, and moving forward.
           </p>
         </div>
 
